@@ -10,7 +10,7 @@ public class SpringFunctionality : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerRb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class SpringFunctionality : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            PlayerRb.velocity = Vector2.zero;
             PlayerRb.AddForce(Vector2.up * lowBounce , ForceMode2D.Impulse);
             
             if (Input.GetKey(KeyCode.Space))
